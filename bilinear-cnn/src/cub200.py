@@ -24,7 +24,7 @@ import PIL.Image
 import torch
 
 
-coarse_class = "flowers"
+coarse_class = "cars"
 
 __all__ = ['CUB200']
 __author__ = 'Hao Zhang'

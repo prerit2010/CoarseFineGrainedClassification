@@ -50,7 +50,7 @@ class BCNN(torch.nn.Module):
         """Declare all needed layers."""
         torch.nn.Module.__init__(self)
         # Convolution and pooling layers of VGG-16.
-        self.features = torch.load("../models/coarse_grained_vgg16.pth").features
+        self.features = torch.load("model/all_coarse_grained_vgg16_saved.pth").features
 #         self.features = torchvision.models.vgg16(pretrained=True).features
 #         self.features = torchvision.models.resnet18(pretrained=True)
         self.features = torch.nn.Sequential(*list(self.features.children())
@@ -195,7 +195,7 @@ class BCNNManager(object):
             train_acc = 100 * num_correct / num_total
             test_acc = self._accuracy(self._test_loader)
             self._scheduler.step(test_acc)
-            if test_acc > best_acc:
+            if test_acc >= best_acc:
                 best_acc = test_acc
                 best_epoch = t + 1
                 print('*', end='')
@@ -296,7 +296,7 @@ def main():
         os.makedirs(directory)
     path = {
         cub200.coarse_class : os.path.join(project_root, 'data/' + cub200.coarse_class),
-        'model': os.path.join(project_root, 'model/' + cub200.coarse_class),
+        'model': os.path.join(project_root, 'model/'),
     }
     for d in path:
         assert os.path.isdir(path[d])
