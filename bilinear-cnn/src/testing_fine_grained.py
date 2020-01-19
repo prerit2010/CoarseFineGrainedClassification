@@ -101,7 +101,7 @@ class BCNNManager(object):
         Args:
             options, dict: Hyperparameters.
         """
-        print('Prepare the network and data.')
+        print('Fine Grained Classfication')
         self._options = options
         self._path = path
         # Network.
@@ -138,7 +138,7 @@ class BCNNManager(object):
 #             root=self._path['dogs'], train=True, download=True,
 #             transform=train_transforms)
         test_data = cub200_test.CUB200(
-            root=self._path['dogs'], train=False, download=True,
+            root=self._path['model'], train=False, download=True,
             transform=test_transforms, coarse_class=coarse_class)
         
 #         self._train_loader = torch.utils.data.DataLoader(
@@ -238,7 +238,7 @@ class BCNNManager(object):
         """Get the mean and std value for a certain dataset."""
         print('Compute mean and variance for training data.')
         train_data = cub200_test.CUB200(
-            root=self._path['dogs'], train=True,
+            root=self._path['model'], train=True,
             transform=torchvision.transforms.ToTensor(), download=True)
         train_loader = torch.utils.data.DataLoader(
             train_data, batch_size=1, shuffle=False, num_workers=4,
@@ -296,7 +296,6 @@ def main():
 
     project_root = os.popen('pwd').read().strip()
     path = {
-        'dogs': os.path.join(project_root, 'data/dogs'),
         'testing' : os.path.join(project_root, 'data/testing'),
         'model': os.path.join(project_root, 'model/', args.model),
     }

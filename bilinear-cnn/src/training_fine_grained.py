@@ -50,7 +50,7 @@ class BCNN(torch.nn.Module):
         """Declare all needed layers."""
         torch.nn.Module.__init__(self)
         # Convolution and pooling layers of VGG-16.
-        self.features = torch.load("model/all_coarse_grained_vgg16_saved.pth").features
+        self.features = torch.load("model/coarse_grained_vgg_with_fine_tune.pth").features
 #         self.features = torchvision.models.vgg16(pretrained=True).features
 #         self.features = torchvision.models.resnet18(pretrained=True)
         self.features = torch.nn.Sequential(*list(self.features.children())
@@ -291,9 +291,9 @@ def main():
     }
 
     project_root = os.popen('pwd').read().strip()
-    directory = "model/" + cub200.coarse_class
-    if not os.path.exists(directory):
-        os.makedirs(directory)
+#     directory = "model/" + cub200.coarse_class
+#     if not os.path.exists(directory):
+#         os.makedirs(directory)
     path = {
         cub200.coarse_class : os.path.join(project_root, 'data/' + cub200.coarse_class),
         'model': os.path.join(project_root, 'model/'),
