@@ -22,7 +22,7 @@ We observed that combining all the images of all classes, our model was able tor
 
 #### Bilinear-CNN
 
-![alt text](http://url/to/img.png)
+![](https://github.com/prerit2010/CoarseFineGrainedClassification/blob/master/diagram.png)
 
 * We used our VGG classifier fine tuned in the previous step as the basemodel for Bilinear-CNN.
 
