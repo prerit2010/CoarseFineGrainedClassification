@@ -1,6 +1,6 @@
 # CourseFineGrainedClassification
 
-Given  a  dataset  which  has  some  coarse  grained  classes,  and  with  each  coarsedgrained  class,  we  have  some  fine  grained  classes,  the  aim  of  this  asssignmentis  to  test  the  accuracy  of  an  algorithm  on  the  task  of  coarse  and  fine  grainedclassification
+Given  a  dataset  which  has  some  coarse  grained  classes,  and  within  each  coarsed grained  class,  we  have  some  fine  grained  classes. The aim is to test the  accuracy  of  an  algorithm  on  the  task  of  coarse  and  fine  grained classification
 
 ## Methods used
 
